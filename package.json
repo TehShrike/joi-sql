@@ -4,7 +4,7 @@
   "description": "Create Joi validation code for MySQL databases",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "tape test/building.js"
   },
   "repository": {
     "type": "git",
