@@ -4,6 +4,10 @@ Point it at your local database, and it spits out a [Joi](https://github.com/hap
 
 [![Build Status](https://travis-ci.org/TehShrike/joi-sql.svg)](https://travis-ci.org/TehShrike/joi-sql)
 
+## Install
+
+`npm install -g joi-sql`
+
 ## Usage
 
 Call it from the command-line!
