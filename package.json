@@ -24,5 +24,16 @@
   "bugs": {
     "url": "https://github.com/TehShrike/joi-sql/issues"
   },
-  "homepage": "https://github.com/TehShrike/joi-sql"
+  "homepage": "https://github.com/TehShrike/joi-sql",
+  "devDependencies": {
+    "tape": "^4.0.0"
+  },
+  "dependencies": {
+    "camelize": "^1.0.0",
+    "minimist": "^1.1.1",
+    "mysql": "^2.6.2",
+    "sql-concat": "^1.0.0",
+    "to-camel-case": "^0.2.1"
+  },
+  "preferGlobal": true
 }
