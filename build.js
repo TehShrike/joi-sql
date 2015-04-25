@@ -31,7 +31,7 @@ var checks = [
 	function intCheck(column) {
 		var checks = ''
 		if (maxIntValues[column.dataType]) {
-			checks += '.integer()'
+			checks += '.number().integer()'
 
 			var min = 0
 			var max = maxIntValues[column.dataType]

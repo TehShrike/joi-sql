@@ -19,15 +19,16 @@ Call it from the command-line!
 Spits out something like:
 
 ```js
+
 Joi.object({
-	projectId: Joi.required().invalid(null).integer().max(4294967295).min(0),
-	contactId: Joi.required().invalid(null).integer().max(4294967295).min(0),
+	projectId: Joi.required().invalid(null).number().integer().max(4294967295).min(0),
+	contactId: Joi.required().invalid(null).number().integer().max(4294967295).min(0),
 	dateCreated: Joi.required().invalid(null).date(),
-	engineerId: Joi.integer().max(4294967295).min(0),
+	engineerId: Joi.number().integer().max(4294967295).min(0),
 	name: Joi.required().invalid(null).string().max(200),
 	engineeringProject: Joi.required().invalid(null).boolean(),
 	printingProject: Joi.required().invalid(null).boolean(),
-	activeProjectStateId: Joi.required().invalid(null).integer().max(4294967295).min(0),
+	activeProjectStateId: Joi.required().invalid(null).number().integer().max(4294967295).min(0),
 	startDate: Joi.date(),
 	done: Joi.required().invalid(null).boolean(),
 	doneDate: Joi.date(),
@@ -36,7 +37,7 @@ Joi.object({
 	actualEngineeringHours: Joi.number().precision(1).less(10000),
 	engineeringDueDate: Joi.date(),
 	printParts: Joi.string().max(65535),
-	printQuantity: Joi.integer().max(8388607).min(-8388608),
+	printQuantity: Joi.number().integer().max(8388607).min(-8388608),
 	printTimeHours: Joi.number().precision(1).less(10000),
 	printDueDate: Joi.date(),
 	paymentReceived: Joi.required().invalid(null).boolean(),
@@ -45,7 +46,7 @@ Joi.object({
 	quoteDate: Joi.date(),
 	followUpDate: Joi.date(),
 	notes: Joi.string().max(65535),
-	version: Joi.required().invalid(null).integer().max(4294967295).min(0)
+	version: Joi.required().invalid(null).number().integer().max(4294967295).min(0)
 })
 ```
 
