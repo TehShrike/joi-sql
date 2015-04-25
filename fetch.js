@@ -2,7 +2,7 @@ var q = require('sql-concat')
 var camelize = require('camelize')
 
 module.exports = function(db, opts, cb) {
-	var query = q.select('table_catalog, table_schema, table_name, column_name, ordinal_position, column_default, is_nullable, data_type, character_maximum_length, character_octet_length, numeric_precision, numeric_scale, datetime_precision, character_set_name, collation_name, column_type, column_key, extra, privileges, column_comment')
+	var query = q.select('column_name, data_type, column_type, numeric_precision, numeric_scale, character_maximum_length')
 		.from('information_schema.columns')
 		.where('table_schema', opts.schema)
 
