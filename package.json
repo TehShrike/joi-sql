@@ -1,6 +1,6 @@
 {
   "name": "joi-sql",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create Joi validation code for MySQL databases",
   "main": "index.js",
   "scripts": {
