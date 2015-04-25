@@ -2,7 +2,7 @@
 
 Point it at your local database, and it spits out a [Joi](https://github.com/hapijs/joi) object validator.
 
-[![Build Status](https://travis-ci.org/TehShrike/joi-sql.svg)](https://travis-ci.org/TehShrike/joi-sql)
+[![Build Status](https://travis-ci.org/TehShrike/joi-sql.svg?branch=master)](https://travis-ci.org/TehShrike/joi-sql)
 
 ## Install
 
@@ -12,9 +12,9 @@ Point it at your local database, and it spits out a [Joi](https://github.com/hap
 
 Call it from the command-line!
 
-`joi-sql --host=localhost --user=root --password=abc123 --schema=awesomedb --table=customer`
+`joi-sql --host=localhost --user=root --password=abc123 --schema=awesomedb --table=customer --camel`
 
-(host and user and password are all optional)
+(`host`, `user`, `password`, and `camel` are all optional)
 
 Spits out something like:
 
