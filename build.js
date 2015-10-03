@@ -22,6 +22,10 @@ function decimalLessThan(precision) {
 	return Math.pow(10, precision)
 }
 
+function unrollEnum(col) {
+	return col.columnType.match(/enum\((.+)\)/)[1]
+}
+
 var checks = [
 
 	function nullableCheck(column) {
@@ -61,6 +65,13 @@ var checks = [
 	function decimalCheck(column) {
 		return ifValThen(column, 'dataType', 'decimal', '.number().precision('
 			+ column.numericScale + ').less(' + decimalLessThan(column.numericPrecision - column.numericScale) + ')')
+	},
+
+	function enumCheck(column) {
+		if (column.dataType === 'enum') {
+			return '.any().valid(' + unrollEnum(column) + ')'
+		}
+		return ''
 	}
 
 ]

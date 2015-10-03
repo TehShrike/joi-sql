@@ -517,4 +517,10 @@ module.exports = [ { tableCatalog: 'def',
     columnKey: '',
     extra: '',
     privileges: 'select,insert,update,references',
-    columnComment: '' } ]
+    columnComment: '' },
+  { columnName: 'customer_type',
+    dataType: 'enum',
+    columnType: 'enum(\'recreational\',\'medical\',\'wholesale\')',
+    numericPrecision: null,
+    numericScale: null,
+    characterMaximumLength: 12 } ]
