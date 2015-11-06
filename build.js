@@ -29,7 +29,11 @@ function unrollEnum(col) {
 var checks = [
 
 	function nullableCheck(column) {
-		return ifValThen(column, 'isNullable', 'NO', '.required().invalid(null)')
+		if (column.isNullable === 'YES') {
+			return '.valid(null)'
+		} else if (column.isNullable === 'NO') {
+			return '.required().invalid(null)'
+		}
 	},
 
 	function intCheck(column) {
