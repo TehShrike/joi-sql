@@ -28,14 +28,6 @@ function unrollEnum(col) {
 
 var checks = [
 
-	function nullableCheck(column) {
-		if (column.isNullable === 'YES') {
-			return '.valid(null)'
-		} else if (column.isNullable === 'NO') {
-			return '.invalid(null)'
-		}
-	},
-
 	function intCheck(column) {
 		var checks = ''
 		if (maxIntValues[column.dataType]) {
@@ -76,6 +68,14 @@ var checks = [
 			return '.any().valid(' + unrollEnum(column) + ')'
 		}
 		return ''
+	},
+
+	function nullableCheck(column) {
+		if (column.isNullable === 'YES') {
+			return '.allow(null)'
+		} else if (column.isNullable === 'NO') {
+			return '.invalid(null)'
+		}
 	}
 
 ]
