@@ -32,7 +32,7 @@ var checks = [
 		if (column.isNullable === 'YES') {
 			return '.valid(null)'
 		} else if (column.isNullable === 'NO') {
-			return '.required().invalid(null)'
+			return '.invalid(null)'
 		}
 	},
 
