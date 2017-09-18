@@ -10,11 +10,25 @@ Point it at your local database, and it spits out a [Joi](https://github.com/hap
 
 ## Usage
 
-Call it from the command-line!
+##### Call it from the command-line!
 
 `joi-sql --host=localhost --user=root --password=abc123 --schema=awesomedb --table=customer --camel`
 
 (`host`, `user`, `password`, and `camel` are all optional)
+
+##### Or use it as a Module
+
+```js
+var joiSql = require('joi-sql');
+var result = joiSql({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    schema: 'foo',
+    table: 'bar',
+    camel: true
+});
+```
 
 Spits out something like:
 
