@@ -1,12 +1,16 @@
-var fetch = require('../fetch')
-var mysql = require('mysql')
+const fetch = require('../fetch')
+const mysql = require('mysql')
 
-var db = mysql.createConnection({
+const db = mysql.createConnection({
 	host: '127.0.0.1',
 	user: 'root',
-	password: ''
+	password: '',
 })
 
-fetch(db, { schema: 'pwner', table: 'project' }, function(err, columns) {
-	console.log(err, columns)
+fetch(db, { schema: 'pwner', table: 'project' }).then(columns => {
+	console.log(columns)
+}).catch(err => {
+	process.nextTick(() => {
+		throw err
+	})
 })

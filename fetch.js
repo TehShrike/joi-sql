@@ -1,22 +1,24 @@
-var q = require('sql-concat')
-var camelize = require('camelize')
+const q = require('sql-concat')
+const camelize = require('camelize')
 
-module.exports = function(db, opts, cb) {
-	var query = q.select('column_name, data_type, column_type, numeric_precision, numeric_scale, character_maximum_length', 'is_nullable')
-		.from('information_schema.columns')
-		.where('table_schema', opts.schema)
+module.exports = (db, { schema, table }) => {
+	return new Promise((resolve, reject) => {
+		let query = q.select('column_name, data_type, column_type, numeric_precision, numeric_scale, character_maximum_length', 'is_nullable')
+			.from('information_schema.columns')
+			.where('table_schema', schema)
 
-	if (opts.table) {
-		query = query.where('table_name', opts.table)
-	}
-
-	var sqlAndParameters = query.build()
-
-	db.query(sqlAndParameters.str, sqlAndParameters.params, function(err, columns) {
-		if (err) {
-			cb(err)
-		} else {
-			cb(null, camelize(columns))		
+		if (table) {
+			query = query.where('table_name', table)
 		}
+
+		const sqlAndParameters = query.build()
+
+		db.query(sqlAndParameters.str, sqlAndParameters.params, (err, columns) => {
+			if (err) {
+				reject(err)
+			} else {
+				resolve(camelize(columns))
+			}
+		})
 	})
 }

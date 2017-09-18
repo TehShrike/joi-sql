@@ -6,34 +6,27 @@ Point it at your local database, and it spits out a [Joi](https://github.com/hap
 
 ## Install
 
-`npm install -g joi-sql`
+```sh
+npm install joi-sql
+```
+
+(`npm install -g joi-sql` if you want to use it from the command-line)
 
 ## Usage
 
-##### Call it from the command-line!
+### CLI
 
-`joi-sql --host=localhost --user=root --password=abc123 --schema=awesomedb --table=customer --camel`
-
-(`host`, `user`, `password`, and `camel` are all optional)
-
-##### Or use it as a Module
-
-```js
-var joiSql = require('joi-sql');
-var result = joiSql({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    schema: 'foo',
-    table: 'bar',
-    camel: true
-});
+```sh
+joi-sql --host=localhost --user=root --password=abc123 --schema=awesomedb --table=customer --camel
 ```
+
+`host`, `user`, `password`, and `camel` are all optional.  `schema` and `table` are not.
+
+If `camel` is set, then column names are converted to cammel case identifiers.
 
 Spits out something like:
 
 ```js
-
 Joi.object({
 	projectId: Joi.required().invalid(null).number().integer().max(4294967295).min(0),
 	contactId: Joi.required().invalid(null).number().integer().max(4294967295).min(0),
@@ -61,6 +54,25 @@ Joi.object({
 	followUpDate: Joi.date(),
 	notes: Joi.string().max(65535),
 	version: Joi.required().invalid(null).number().integer().max(4294967295).min(0)
+})
+```
+
+### Programmatic
+
+Returns a promise that resolves to a string containing the code snippet above.
+
+```js
+const joiSql = require('joi-sql')
+
+joiSql({
+    host: 'localhost',
+    user: 'root',
+    password: 'abc123',
+    schema: 'awesomedb',
+    table: 'customer',
+    camel: true
+}).then(result => {
+	typeof result // => 'string'
 })
 ```
 

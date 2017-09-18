@@ -25,18 +25,14 @@
     "url": "https://github.com/TehShrike/joi-sql/issues"
   },
   "homepage": "https://github.com/TehShrike/joi-sql",
-  "devDependencies": {
-    "tape": "^4.0.0"
-  },
+  "devDependencies": {},
   "dependencies": {
     "camelize": "^1.0.0",
     "minimist": "^1.1.1",
     "mysql": "^2.6.2",
+    "p-finally": "1.0.0",
     "sql-concat": "^1.0.0",
     "to-camel-case": "^0.2.1"
   },
-  "preferGlobal": true,
-  "bin": {
-    "joi-sql": "./index.js"
-  }
+  "bin":  "./bin.js"
 }
