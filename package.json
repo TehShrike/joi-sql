@@ -34,5 +34,5 @@
     "sql-concat": "^1.0.0",
     "to-camel-case": "^0.2.1"
   },
-  "bin":  "./bin.js"
+  "bin": "./bin.js"
 }
