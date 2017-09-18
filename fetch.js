@@ -13,8 +13,10 @@ module.exports = function(db, opts, cb) {
 	var sqlAndParameters = query.build()
 
 	db.query(sqlAndParameters.str, sqlAndParameters.params, function(err, columns) {
-		if (err) cb(err)
-
-		cb(null, camelize(columns))
+		if (err) {
+			cb(err)
+		} else {
+			cb(null, camelize(columns))		
+		}
 	})
 }
