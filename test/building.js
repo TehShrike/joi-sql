@@ -31,7 +31,8 @@ const expected = `Joi.object({
 	quoteDate: Joi.date().allow(null),
 	followUpDate: Joi.date().allow(null),
 	notes: Joi.string().max(65535).allow(null),
-	version: Joi.number().integer().max(4294967295).min(0).invalid(null)
+	version: Joi.number().integer().max(4294967295).min(0).invalid(null),
+	updatedAt: Joi.date().invalid(null)
 })`
 
 console.log(actual)
