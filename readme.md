@@ -77,12 +77,12 @@ joiSql({
 
 // If you want to recycle your connection
 const connection = mysql.createConnection({
-	host: 'localhost',
+    host: 'localhost',
     user: 'root',
     password: 'abc123',
 });
 joiSql({
-	connection,
+    connection,
     schema: 'awesomedb',
     table: 'customer',
     camel: true
