@@ -74,24 +74,9 @@ joiSql({
 }).then(result => {
 	typeof result // => 'string'
 })
-
-// If you want to recycle your connection
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'abc123',
-});
-joiSql({
-    connection,
-    schema: 'awesomedb',
-    table: 'customer',
-    camel: true
-}).then(result => {
-	typeof result // => 'string'
-	
-	connection.end();
-});
 ```
+
+You may also pass in an optional `connection` property which must be a [`mysql`](https://github.com/mysqljs/mysql) connection instance.
 
 Pull requests welcome.
 
