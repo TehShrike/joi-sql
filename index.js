@@ -5,7 +5,7 @@ const build = require('./build')
 const fetch = require('./fetch')
 
 module.exports = argv => {
-	const { schema, table, host, user, password, camel } = Object.assign({
+	const { schema, table, host, user, password, camel, connection } = Object.assign({
 		host: '127.0.0.1',
 		user: 'root',
 		password: '',
@@ -14,7 +14,7 @@ module.exports = argv => {
 	if (typeof schema !== 'string' || typeof table !== 'string') {
 		new Error('you must pass in schema and table arguments')
 	} else {
-		const db = mysql.createConnection({
+		const db = connection || mysql.createConnection({
 			host,
 			user,
 			password,

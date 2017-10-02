@@ -47,7 +47,7 @@ var checks = [
 	},
 
 	function dateCheck(column) {
-		return ifValThen(column, 'dataType', ['datetime', 'date'], '.date()')
+		return ifValThen(column, 'dataType', ['datetime', 'date', 'timestamp'], '.date()')
 	},
 
 	function stringCheck(column) {
