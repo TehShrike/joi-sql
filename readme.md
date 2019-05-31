@@ -22,7 +22,7 @@ joi-sql --host=localhost --user=root --password=abc123 --schema=awesomedb --tabl
 
 `host`, `user`, `password`, and `camel` are all optional.  `schema` and `table` are not.
 
-If `camel` is set, then column names are converted to cammel case identifiers.
+If `camel` is set, then column names are converted to camel case identifiers.
 
 Spits out something like:
 
