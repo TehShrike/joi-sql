@@ -2,9 +2,10 @@ const assert = require('assert')
 const testData = require('./test-column-data')
 const build = require('../build')
 
-const actualCamel = build(testData, true)
+const camel = true
+const actual = build(testData, camel)
 
-const expectedCamel = `Joi.object({
+const expected = `Joi.object({
 	projectId: Joi.number().integer().max(4294967295).min(0).invalid(null),
 	contactId: Joi.number().integer().max(4294967295).min(0).invalid(null),
 	dateCreated: Joi.date().invalid(null),
@@ -32,42 +33,6 @@ const expectedCamel = `Joi.object({
 	notes: Joi.string().allow('').max(65535).allow(null),
 	version: Joi.number().integer().max(4294967295).min(0).invalid(null),
 	updatedAt: Joi.date().invalid(null)
-})`
-
-console.log(actualCamel)
-
-assert.equal(actualCamel, expectedCamel)
-
-const actual = build(testData, false)
-
-const expected = `Joi.object({
-	project_id: Joi.number().integer().max(4294967295).min(0).invalid(null),
-	contact_id: Joi.number().integer().max(4294967295).min(0).invalid(null),
-	date_created: Joi.date().invalid(null),
-	engineer_id: Joi.number().integer().max(4294967295).min(0).allow(null),
-	name: Joi.string().allow('').max(200).invalid(null),
-	engineering_project: Joi.boolean().invalid(null),
-	printing_project: Joi.boolean().invalid(null),
-	active_project_state_id: Joi.number().integer().max(4294967295).min(0).invalid(null),
-	start_date: Joi.date().allow(null),
-	done: Joi.boolean().invalid(null),
-	done_date: Joi.date().allow(null),
-	dead_reason: Joi.string().allow('').max(65535).allow(null),
-	quoted_engineering_hours: Joi.number().precision(1).less(10000).allow(null),
-	actual_engineering_hours: Joi.number().precision(1).less(10000).allow(null),
-	engineering_due_date: Joi.date().allow(null),
-	print_parts: Joi.string().allow('').max(65535).allow(null),
-	print_quantity: Joi.number().integer().max(8388607).min(-8388608).allow(null),
-	print_time_hours: Joi.number().precision(1).less(10000).allow(null),
-	print_due_date: Joi.date().allow(null),
-	payment_received: Joi.boolean().invalid(null),
-	contact_date: Joi.date().allow(null),
-	reply_date: Joi.date().allow(null),
-	quote_date: Joi.date().allow(null),
-	follow_up_date: Joi.date().allow(null),
-	notes: Joi.string().allow('').max(65535).allow(null),
-	version: Joi.number().integer().max(4294967295).min(0).invalid(null),
-	updated_at: Joi.date().invalid(null)
 })`
 
 console.log(actual)
