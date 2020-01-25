@@ -233,11 +233,11 @@ module.exports = [{
 	isNullable: 'NO',
 },
 {
-	COLUMN_NAME: 'updated_at',
-	DATA_TYPE: 'timestamp',
-	COLUMN_TYPE: 'timestamp',
-	NUMERIC_PRECISION: null,
-	NUMERIC_SCALE: null,
-	CHARACTER_MAXIMUM_LENGTH: null,
-	IS_NULLABLE: 'NO',
+	columnName: 'updated_at',
+	dataType: 'timestamp',
+	columnType: 'timestamp',
+	numericPrecision: null,
+	numericScale: null,
+	characterMaximumLength: null,
+	isNullable: 'NO',
 }]
