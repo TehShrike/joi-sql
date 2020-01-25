@@ -1,7 +1,7 @@
 const q = require(`sql-concat`)
 const camelcaseKeys = require(`camelcase-keys`)
 
-const columns = [
+const informationSchemaColumns = [
 	`COLUMN_NAME`,
 	`DATA_TYPE`,
 	`COLUMN_TYPE`,
@@ -13,7 +13,7 @@ const columns = [
 
 module.exports = (db, { schema, table }) => {
 	return new Promise((resolve, reject) => {
-		let query = q.select(columns)
+		let query = q.select(...informationSchemaColumns)
 			.from(`information_schema.COLUMNS`)
 			.where(`TABLE_SCHEMA`, schema)
 
