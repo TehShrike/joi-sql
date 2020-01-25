@@ -28,7 +28,7 @@
   "homepage": "https://github.com/TehShrike/joi-sql",
   "devDependencies": {},
   "dependencies": {
-    "camelize": "^1.0.0",
+    "camelcase-keys": "^6.1.1",
     "minimist": "^1.2.0",
     "mysql": "^2.17.1",
     "p-finally": "1.0.0",
