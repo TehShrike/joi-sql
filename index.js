@@ -15,7 +15,6 @@ module.exports = argv => {
 	if (typeof schema !== `string` || typeof table !== `string`) {
 		new Error(`you must pass in schema and table arguments`)
 	} else {
-		let endConnection = !connection
 		const db = connection || mysql.createConnection({
 			host,
 			user,
@@ -25,7 +24,7 @@ module.exports = argv => {
 		return pFinally(fetch(db, { schema, table }).then(columns => {
 			return build(columns, camel)
 		}), () => {
-			if(endConnection) {
+			if(!connection) {
 				db.end()
 			}
 		})
