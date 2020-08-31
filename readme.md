@@ -78,7 +78,7 @@ joiSql({
 })
 ```
 
-You may also pass in an optional `connection` property which must be a [`mysql`](https://github.com/mysqljs/mysql) connection instance.
+You may also pass in an optional `connection` property which must be a [`mysql`](https://github.com/mysqljs/mysql) connection instance. If you pass your own connection, it's up to you to end it after you're done.
 
 Pull requests welcome.
 
